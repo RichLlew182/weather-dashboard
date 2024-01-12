@@ -35,8 +35,11 @@ fetch(geoURL)
     const date = newData.list[0].dt_txt;
     console.log({ date })
     
-    const weatherIcon = newData.list[0].weather[0].icon;
-    console.log({ weatherIcon })
+    const iconCode = newData.list[0].weather[0].icon;
+    console.log({ iconCode });
+
+    const weatherIconURL = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    console.log(weatherIconURL);
     
     const temp = newData.list[0].main.temp
     console.log({ temp })
