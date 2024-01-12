@@ -20,16 +20,23 @@ fetch(geoURL)
   var lat = data[0].lat;
   var lon = data[0].lon;
 
-  console.log(latitude,longitude)
+  console.log(lat,lon)
   
   const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
 
-
+  fetch(queryURL)
+  .then(function (response) {
+    console.log(response)
+    return response.json();
+  }).then(function (newData) {
+    console.log(newData)
 
 
 
 
   })
 
+})
+  
 })
 
