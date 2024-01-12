@@ -27,7 +27,22 @@ fetch(geoURL)
     console.log(response)
     return response.json();
   }).then(function (newData) {
-    console.log(newData)
+    console.log(newData);
+
+    const cityName = newData.city.name;
+    console.log({ cityName })
+    
+    const date = newData.list[0].dt_txt;
+    console.log({ date })
+    
+    const weatherIcon = newData.list[0].weather[0].icon;
+    console.log({ weatherIcon })
+    
+    const temp = newData.list[0].main.temp
+    console.log({ temp })
+    
+    const windSpeed = newData.list[0].wind.speed
+    console.log({windSpeed})
 
 
 
