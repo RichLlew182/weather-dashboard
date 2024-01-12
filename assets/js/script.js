@@ -48,11 +48,18 @@ fetch(geoURL)
     
     const windSpeed = newData.list[0].wind.speed
     console.log({ windSpeed })
-    
 
+    const humidity = newData.list[0].main.humidity
+    console.log({ humidity })
 
+    var todayDiv = $('#today');
+    var todayHeader = $('<h2>').text(cityName + ' ' + date);
+    var todayIcon = $('<img>').attr('src', weatherIconURL);
+    var todayTemp = $('<p>').text('Temp: ' + temp + ' °C')
+    var todayWind = $('<p>').text('Wind: ' + windSpeed + ' MPH')
+    var todayHumidity =  $('<p>').text('Humidity: ' + humidity + '%')
 
-
+    todayDiv.prepend(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
 
   })
 
