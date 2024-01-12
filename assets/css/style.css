@@ -1,0 +1,65 @@
+.five-day-card {
+  position: relative;
+  width: 20%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.weather-img {
+  border-style: none;
+  vertical-align: middle;
+}
+
+.history-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin: 0.5rem;
+  width: 100%;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  outline: none;
+  color: #1a1a1a;
+  background-color: #aeaeae;
+  -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.search-button {
+  /* text-align: inherit; */
+  margin: 0.5rem;
+  width: 100%;
+  background-color: #5098e6;
+  color: #d9e9e8;
+}
+
+.weather-search {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem !important;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  margin: 0.625rem 0;
+  font-size: 1.2rem;
+  border: 1px solid #484848;
+  border-radius: 0.3rem;
+}
+
+#form-heading {
+  margin: 0.5rem;
+}
+
+.weather-hr {
+  margin-left: 0.5rem;
+  width: 100%;
+}
+
+.weather-header {
+  background: #20084a;
+  background: -o-linear-gradient(right, #20084a, #3463bc);
+  background: -webkit-gradient(linear, right top, left top, from(#20084a), to(#3463bc));
+  background: linear-gradient(to left, #20084a, #3463bc);
+}
