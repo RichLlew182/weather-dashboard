@@ -17,9 +17,12 @@ fetch(geoURL)
 }).then(function (data) {
   console.log(data)
   
+  var lat = data[0].lat;
+  var lon = data[0].lon;
+
+  console.log(latitude,longitude)
   
-  
-  // const queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${userLocation}i&appid=${APIKey}`;
+  const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
 
 
 
