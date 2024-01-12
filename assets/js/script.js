@@ -32,20 +32,24 @@ fetch(geoURL)
     const cityName = newData.city.name;
     console.log({ cityName })
     
-    const date = newData.list[0].dt_txt;
-    console.log({ date })
-    
+    let date = newData.list[0].dt_txt;
+    console.log({ date });
+    date = dayjs(date).format('DD/MM/YYYY')
+    console.log({ date });
+
     const iconCode = newData.list[0].weather[0].icon;
     console.log({ iconCode });
 
     const weatherIconURL = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-    console.log(weatherIconURL);
+    console.log({ weatherIconURL });
     
     const temp = newData.list[0].main.temp
     console.log({ temp })
     
     const windSpeed = newData.list[0].wind.speed
-    console.log({windSpeed})
+    console.log({ windSpeed })
+    
+
 
 
 
