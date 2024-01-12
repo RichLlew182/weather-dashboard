@@ -53,13 +53,15 @@ fetch(geoURL)
     console.log({ humidity })
 
     var todayDiv = $('#today');
+    var todayCard = $('<article>').addClass('card p-3')
     var todayHeader = $('<h2>').text(cityName + ' ' + date);
     var todayIcon = $('<img>').attr('src', weatherIconURL);
     var todayTemp = $('<p>').text('Temp: ' + temp + ' °C')
     var todayWind = $('<p>').text('Wind: ' + windSpeed + ' MPH')
     var todayHumidity =  $('<p>').text('Humidity: ' + humidity + '%')
 
-    todayDiv.prepend(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
+    todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
+    todayDiv.append(todayCard)
 
   })
 
