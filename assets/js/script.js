@@ -6,9 +6,7 @@ $('#search-button').on('click', function (e, userLocation) {
   
   var userLocation = $('#search-input').val().trim()
 
- 
 const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&appid=${APIKey}`;
-
 
 fetch(geoURL)
 .then(function (response) {
@@ -22,7 +20,7 @@ fetch(geoURL)
 
   console.log(lat,lon)
   
-  const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+  const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${APIKey}`;
 
   fetch(queryURL)
   .then(function (response) {
