@@ -96,19 +96,27 @@ $('#search-button').on('click', function (e, userLocation) {
             todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
             todayDiv.append(todayCard);
 
+            for (let i = 0; i < newData.list.length; i+=8) {
+              var fiveDayForecast = newData.list[i];
+              console.log({fiveDayForecast})
+            }
+
           })
 
       })
-  
+
 })
   
 
 $(document).on('click', '.history-btn', function (e) {
   console.log(e)
   console.log(this)
-  console.log($(this).text())
 
-} )
+  var historyBtnLocation = $(this).text();
+  console.log({ historyBtnLocation })
+
+
+})
 
 
 
