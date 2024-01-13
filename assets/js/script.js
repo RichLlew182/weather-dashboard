@@ -17,7 +17,7 @@ if (storedHistory.length > 0) {
 
 }
 
-$('#search-button').on('click', function (e, userLocation) {
+$('#search-button').on('click', function (e) {
   
   e.preventDefault();
   fetchWeather() 
@@ -26,14 +26,16 @@ $('#search-button').on('click', function (e, userLocation) {
 
 function fetchWeather() {
 
-  
   // console.log($(this).attr('data-name'))
   
   var historyButtonInput = $(this).attr('data-name');
+
+  var userInput = $('#search-input');
   
   userLocation = $('#search-input').val().trim() || historyButtonInput;
 
   if (!userLocation == '') {
+    userInput.val('')
     historyDiv.prepend(historyTitle);
     if (storedHistory) {
         
@@ -45,8 +47,7 @@ function fetchWeather() {
       }
     }
      
-  }
-     
+  }  
      
       const APIKey = "34868cf202b6a50a7276328f1ce106bf";
   
@@ -131,18 +132,7 @@ function fetchWeather() {
 
 // })
   
-
 $(document).on('click', '.history-btn', fetchWeather)
-
-// {
-//   console.log(e)
-//   console.log(this)
-
-//   var historyBtnLocation = $(this).text();
-//   console.log({ historyBtnLocation })
-
-
-// })
 
 
 
