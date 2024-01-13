@@ -62,27 +62,19 @@ $('#search-button').on('click', function (e, userLocation) {
             console.log(newData);
 
             const cityName = newData.city.name;
-            console.log({ cityName })
     
             let date = newData.list[0].dt_txt;
-            console.log({ date });
             date = dayjs(date).format('DD/MM/YYYY')
-            console.log({ date });
 
             const iconCode = newData.list[0].weather[0].icon;
-            console.log({ iconCode });
 
             const weatherIconURL = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-            console.log({ weatherIconURL });
     
             const temp = newData.list[0].main.temp
-            console.log({ temp })
     
             const windSpeed = newData.list[0].wind.speed
-            console.log({ windSpeed })
 
             const humidity = newData.list[0].main.humidity
-            console.log({ humidity })
 
             var todayDiv = $('#today');
             todayDiv.empty();
@@ -101,27 +93,19 @@ $('#search-button').on('click', function (e, userLocation) {
 
             for (let i = 0; i < newData.list.length; i+=8) {
               var fiveDayForecast = newData.list[i];
-              console.log({ fiveDayForecast });
     
             let fiveDayDate = fiveDayForecast.dt_txt;
-            console.log({ fiveDayDate });
             fiveDayDate = dayjs(fiveDayDate).format('DD/MM/YYYY')
-            console.log({ fiveDayDate });
 
             const fiveDayIconCode = fiveDayForecast.weather[0].icon;
-            console.log({ fiveDayIconCode });
 
             const fiveDayWeatherIconURL = `https://openweathermap.org/img/wn/${fiveDayIconCode}@2x.png`;
-            console.log({ fiveDayWeatherIconURL });
     
             const fiveDayTemp = fiveDayForecast.main.temp
-            console.log({ fiveDayTemp })
     
             const fiveDayWindSpeed = fiveDayForecast.wind.speed
-            console.log({ fiveDayWindSpeed })
 
             const fiveDayHumidity = fiveDayForecast.main.humidity
-            console.log({ fiveDayHumidity }) 
             
             var fiveDayCard = $('<article>').addClass('five-day-card p-3')
             var fiveDayDateEl = $('<h4>').text(fiveDayDate);
