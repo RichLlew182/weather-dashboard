@@ -1,16 +1,16 @@
-var storedHistory = JSON.parse(localStorage.getItem('history')) || [];
+const storedHistory = JSON.parse(localStorage.getItem('history')) || [];
 console.log(storedHistory);
 
-var historyDiv = $('#history');
-var historyList = $('#history-buttons')
-var historyTitle = $('<h3>').text('History');
+const historyDiv = $('#history');
+const historyList = $('#history-buttons')
+const historyTitle = $('<h3>').text('History');
 
 if (storedHistory.length > 0) { 
 
       historyDiv.prepend(historyTitle);
 
   $.each(storedHistory, function (i, historyLocation) {
-    var historyButton = $('<button>');
+    const historyButton = $('<button>');
     historyButton.text(historyLocation).addClass('history-btn')
     historyList.prepend(historyButton);
  })
@@ -20,7 +20,8 @@ if (storedHistory.length > 0) {
 $('#search-button').on('click', function (e, userLocation) {
   
   e.preventDefault();
-  var userLocation = $('#search-input').val().trim()
+  
+  userLocation = $('#search-input').val().trim();
   
   if (!userLocation == '') {
     historyDiv.prepend(historyTitle);
@@ -46,8 +47,8 @@ $('#search-button').on('click', function (e, userLocation) {
       }).then(function (data) {
         console.log(data)
   
-        var lat = data[0].lat;
-        var lon = data[0].lon;
+        const lat = data[0].lat;
+        const lon = data[0].lon;
 
         console.log(lat, lon)
   
@@ -69,23 +70,21 @@ $('#search-button').on('click', function (e, userLocation) {
             const windSpeed = newData.list[0].wind.speed
             const humidity = newData.list[0].main.humidity
 
-            var todayDiv = $('#today');
-            todayDiv.empty();
-            var todayCard = $('<article>').addClass('card p-3')
-            var todayHeader = $('<h2>').text(cityName + ' ' + date);
-            var todayIcon = $('<img>').attr('src', weatherIconURL);
-            var todayTemp = $('<p>').text('Temp: ' + temp + ' °C')
-            var todayWind = $('<p>').text('Wind: ' + windSpeed + ' MPH')
-            var todayHumidity = $('<p>').text('Humidity: ' + humidity + '%')
+            const todayDiv = $('#today').empty();
+            const todayCard = $('<article>').addClass('card p-3')
+            const todayHeader = $('<h2>').text(cityName + ' ' + date);
+            const todayIcon = $('<img>').attr('src', weatherIconURL);
+            const todayTemp = $('<p>').text('Temp: ' + temp + ' °C')
+            const todayWind = $('<p>').text('Wind: ' + windSpeed + ' MPH')
+            const todayHumidity = $('<p>').text('Humidity: ' + humidity + '%')
 
             todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
             todayDiv.append(todayCard);
             
-            var fiveDayEl = $('#forecast')
-            fiveDayEl.empty();
+            const forecastEl = $('#forecast').empty();
 
             for (let i = 0; i < newData.list.length; i += 8) {
-              var fiveDayForecast = newData.list[i];
+              const fiveDayForecast = newData.list[i];
     
               let fiveDayDate = fiveDayForecast.dt_txt;
               fiveDayDate = dayjs(fiveDayDate).format('DD/MM/YYYY')
@@ -105,7 +104,7 @@ $('#search-button').on('click', function (e, userLocation) {
 
               fiveDayCard.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
               
-              fiveDayEl.append(fiveDayCard)
+              forecastEl.append(fiveDayCard)
             
             }
 
