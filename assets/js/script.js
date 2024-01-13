@@ -83,7 +83,7 @@ $('#search-button').on('click', function (e, userLocation) {
             
             const forecastEl = $('#forecast').empty();
 
-            for (let i = 0; i < newData.list.length; i += 8) {
+            for (let i = 8; i < newData.list.length; i += 8) {
               const fiveDayForecast = newData.list[i];
     
               let fiveDayDate = fiveDayForecast.dt_txt;
