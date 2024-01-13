@@ -1,8 +1,10 @@
 .five-day-card {
   position: relative;
-  width: 20%;
   padding-right: 15px;
   padding-left: 15px;
+  background: #2d3e50;
+    color: white;
+    width: calc(20% - 20px);
 }
 
 .weather-img {
@@ -54,6 +56,13 @@
 
 #form-heading {
   margin: 0.5rem;
+}
+
+section#forecast {
+  gap: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .weather-hr {

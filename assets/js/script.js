@@ -95,10 +95,45 @@ $('#search-button').on('click', function (e, userLocation) {
 
             todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
             todayDiv.append(todayCard);
+            
+            var fiveDayEl = $('#forecast')
+              fiveDayEl.empty();
 
             for (let i = 0; i < newData.list.length; i+=8) {
               var fiveDayForecast = newData.list[i];
-              console.log({fiveDayForecast})
+              console.log({ fiveDayForecast });
+    
+            let fiveDayDate = fiveDayForecast.dt_txt;
+            console.log({ fiveDayDate });
+            fiveDayDate = dayjs(fiveDayDate).format('DD/MM/YYYY')
+            console.log({ fiveDayDate });
+
+            const fiveDayIconCode = fiveDayForecast.weather[0].icon;
+            console.log({ fiveDayIconCode });
+
+            const fiveDayWeatherIconURL = `https://openweathermap.org/img/wn/${fiveDayIconCode}@2x.png`;
+            console.log({ fiveDayWeatherIconURL });
+    
+            const fiveDayTemp = fiveDayForecast.main.temp
+            console.log({ fiveDayTemp })
+    
+            const fiveDayWindSpeed = fiveDayForecast.wind.speed
+            console.log({ fiveDayWindSpeed })
+
+            const fiveDayHumidity = fiveDayForecast.main.humidity
+            console.log({ fiveDayHumidity }) 
+            
+            var fiveDayCard = $('<article>').addClass('five-day-card p-3')
+            var fiveDayDateEl = $('<h3>').text(fiveDayDate);
+            var fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
+            var fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
+            var fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')
+            var fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
+
+              fiveDayCard.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
+              
+              fiveDayEl.append(fiveDayCard)
+            
             }
 
           })
