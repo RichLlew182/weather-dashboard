@@ -124,7 +124,7 @@ $('#search-button').on('click', function (e, userLocation) {
             console.log({ fiveDayHumidity }) 
             
             var fiveDayCard = $('<article>').addClass('five-day-card p-3')
-            var fiveDayDateEl = $('<h3>').text(fiveDayDate);
+            var fiveDayDateEl = $('<h4>').text(fiveDayDate);
             var fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
             var fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
             var fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')

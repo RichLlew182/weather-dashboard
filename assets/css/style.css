@@ -16,7 +16,7 @@
   text-align: center;
   display: inline-block;
   padding: 0.5rem 1.2rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   width: 100%;
   text-decoration: none;
   font-size: 1rem;
@@ -32,7 +32,7 @@
 
 .search-button {
   /* text-align: inherit; */
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   width: 100%;
   background-color: #5098e6;
   color: #d9e9e8;
@@ -41,7 +41,7 @@
 .weather-search {
   width: 100%;
   padding: 0.75rem;
-  margin: 0.5rem !important;
+  margin: 0.5rem 0 !important;
   color: #1a1a1a;
   background-color: #ffffff;
   margin: 0.625rem 0;
@@ -51,11 +51,11 @@
 }
 
 #history h3 {
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 #form-heading {
-  margin: 0.5rem;
+  margin: 0.5 0rem;
 }
 
 section#forecast {
