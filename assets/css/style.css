@@ -1,6 +1,6 @@
 .five-day-card {
   position: relative;
-  background: #2d3e50;
+  background: #5c7ea3;
   color: white;
 }
 
@@ -21,10 +21,11 @@
   border: 1px solid transparent;
   outline: none;
   color: #1a1a1a;
-  background-color: #aeaeae;
+  background-color: #d2d2d2;
   -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  text-transform: capitalize;
 }
 
 .search-button {
