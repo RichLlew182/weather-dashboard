@@ -1,4 +1,19 @@
-var storedHistory = localStorage.getItem('history') || [];
+var storedHistory = JSON.parse(localStorage.getItem('history')) || [];
+console.log(storedHistory);
+
+var historyDiv = $('#history');
+
+if (storedHistory) { 
+
+  $.each(storedHistory, function (i, historyLocation) {
+    var historyButton = $('<button>');
+    historyButton.text(historyLocation)
+    historyDiv.append(historyButton)
+
+ })
+
+
+}
 
 $('#search-button').on('click', function (e, userLocation) {
   
@@ -6,10 +21,16 @@ $('#search-button').on('click', function (e, userLocation) {
   var userLocation = $('#search-input').val().trim()
 
   if (storedHistory) {
+    console.log(storedHistory)
     storedHistory.push(userLocation)
-
-    localStorage.setItem('history', JSON.stringify(storedHistory))
+    localStorage.setItem('history', JSON.stringify(storedHistory));
   
+    historyButton = $('<button>');
+    historyButton.text(storedHistory[0])
+
+    historyDiv = $('#history');
+    historyDiv.append(historyButton)
+
   }
 
   const APIKey = "34868cf202b6a50a7276328f1ce106bf";
