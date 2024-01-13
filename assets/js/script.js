@@ -23,14 +23,13 @@ $('#search-button').on('click', function (e, userLocation) {
 
     if (storedHistory) {
       console.log(storedHistory)
-      storedHistory.push(userLocation)
-      localStorage.setItem('history', JSON.stringify(storedHistory));
-  
-      historyButton = $('<button>');
-      historyButton.text(userLocation).addClass('history-btn')
-
-      historyDiv = $('#history');
-      historyDiv.append(historyButton)
+      if (!storedHistory.includes(userLocation)) {
+        storedHistory.push(userLocation)
+        localStorage.setItem('history', JSON.stringify(storedHistory));
+        historyButton = $('<button>');
+        historyButton.text(userLocation).addClass('history-btn')
+        historyDiv.append(historyButton)
+      }
 
     }
 
@@ -84,6 +83,7 @@ $('#search-button').on('click', function (e, userLocation) {
             console.log({ humidity })
 
             var todayDiv = $('#today');
+            todayDiv.empty();
             var todayCard = $('<article>').addClass('card p-3')
             var todayHeader = $('<h2>').text(cityName + ' ' + date);
             var todayIcon = $('<img>').attr('src', weatherIconURL);
@@ -92,7 +92,7 @@ $('#search-button').on('click', function (e, userLocation) {
             var todayHumidity = $('<p>').text('Humidity: ' + humidity + '%')
 
             todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
-            todayDiv.append(todayCard)
+            todayDiv.append(todayCard);
 
           })
 
@@ -106,7 +106,6 @@ $(document).on('click', '.history-btn', function (e) {
   console.log(this)
   console.log($(this).text())
 
-  
 } )
 
 
