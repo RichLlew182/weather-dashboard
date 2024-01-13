@@ -11,7 +11,7 @@ if (storedHistory.length > 0) {
 
   $.each(storedHistory, function (i, historyLocation) {
     const historyButton = $('<button>');
-    historyButton.text(historyLocation).addClass('history-btn')
+    historyButton.text(historyLocation).addClass('history-btn').attr('data-name', historyLocation)
     historyList.prepend(historyButton);
  })
 
@@ -31,7 +31,7 @@ $('#search-button').on('click', function (e, userLocation) {
       if (!storedHistory.includes(userLocation)) {
         storedHistory.push(userLocation)
         localStorage.setItem('history', JSON.stringify(storedHistory));
-        historyButton = $('<button>').text(userLocation).addClass('history-btn');
+        historyButton = $('<button>').text(userLocation).addClass('history-btn').attr('data-name', historyLocation);
         historyList.prepend(historyButton);
       }
     }
