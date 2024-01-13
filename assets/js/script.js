@@ -47,24 +47,21 @@ function fetchWeather() {
       }
     }
      
-  }  
+  
      
-      const APIKey = "34868cf202b6a50a7276328f1ce106bf";
+     const APIKey = "34868cf202b6a50a7276328f1ce106bf";
   
      const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&appid=${APIKey}`;
     
 
       fetch(geoURL)
         .then(function (response) {
-          console.log(response)
           return response.json();
         }).then(function (data) {
-          console.log(data)
   
           const lat = data[0].lat;
           const lon = data[0].lon;
 
-          console.log(lat, lon)
   
           const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${APIKey}`;
 
@@ -127,6 +124,7 @@ function fetchWeather() {
 
         })
     
+      }  
     }
   
 
