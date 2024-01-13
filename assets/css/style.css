@@ -1,10 +1,7 @@
 .five-day-card {
   position: relative;
-  padding-right: 15px;
-  padding-left: 15px;
   background: #2d3e50;
-    color: white;
-    width: calc(25% - 20px);
+  color: white;
 }
 
 .weather-img {
@@ -59,10 +56,10 @@
 }
 
 section#forecast {
-  gap: 20px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+          row-gap: 30px
 }
 
 .weather-hr {

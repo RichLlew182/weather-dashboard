@@ -71,7 +71,7 @@ $('#search-button').on('click', function (e, userLocation) {
             const humidity = newData.list[0].main.humidity
 
             const todayDiv = $('#today').empty();
-            const todayCard = $('<article>').addClass('card p-3')
+            const todayCard = $('<article>').addClass('card p-5')
             const todayHeader = $('<h2>').text(cityName + ' ' + date);
             const todayIcon = $('<img>').attr('src', weatherIconURL);
             const todayTemp = $('<p>').text('Temp: ' + temp + ' °C')
@@ -95,15 +95,16 @@ $('#search-button').on('click', function (e, userLocation) {
               const fiveDayWindSpeed = fiveDayForecast.wind.speed
               const fiveDayHumidity = fiveDayForecast.main.humidity
               
-              const fiveDayCard = $('<article>').addClass('five-day-card p-3')
+              const fiveDayCard = $('<div>').addClass('col-sm-6 col-xl-3');
+              const fiveDayWrapper = $('<article>').addClass('five-day-card p-5 ')
               const fiveDayDateEl = $('<h4>').text(fiveDayDate);
               const fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
               const fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
               const fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')
               const fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
 
-              fiveDayCard.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
-              
+              fiveDayWrapper.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
+              fiveDayCard.append(fiveDayWrapper)
               forecastEl.append(fiveDayCard)
             
             }
