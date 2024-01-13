@@ -2,8 +2,11 @@ var storedHistory = JSON.parse(localStorage.getItem('history')) || [];
 console.log(storedHistory);
 
 var historyDiv = $('#history');
+var historyTitle = $('<h3>').text('History');
 
-if (storedHistory) { 
+if (storedHistory.length > 0) { 
+
+      historyDiv.prepend(historyTitle);
 
   $.each(storedHistory, function (i, historyLocation) {
     var historyButton = $('<button>');
@@ -12,30 +15,29 @@ if (storedHistory) {
 
  })
 
-
 }
-
 
 $('#search-button').on('click', function (e, userLocation) {
   
-    e.preventDefault();
+  e.preventDefault();
+  historyDiv.prepend(historyTitle);
     var userLocation = $('#search-input').val().trim()
 
     if (storedHistory) {
       console.log(storedHistory)
+
       if (!storedHistory.includes(userLocation)) {
         storedHistory.push(userLocation)
         localStorage.setItem('history', JSON.stringify(storedHistory));
-        historyButton = $('<button>');
-        historyButton.text(userLocation).addClass('history-btn')
-        historyDiv.append(historyButton)
+        historyButton = $('<button>').text(userLocation).addClass('history-btn');
+        historyDiv.append(historyButton);
+        
       }
 
     }
 
     const APIKey = "34868cf202b6a50a7276328f1ce106bf";
   
-
     const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&appid=${APIKey}`;
 
     fetch(geoURL)

@@ -48,6 +48,10 @@
   border-radius: 0.3rem;
 }
 
+#history h3 {
+  margin: 0.5rem;
+}
+
 #form-heading {
   margin: 0.5rem;
 }
