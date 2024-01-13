@@ -7,8 +7,8 @@ if (storedHistory) {
 
   $.each(storedHistory, function (i, historyLocation) {
     var historyButton = $('<button>');
-    historyButton.text(historyLocation)
-    historyDiv.append(historyButton)
+    historyButton.text(historyLocation).addClass('history-btn')
+    historyDiv.append(historyButton);
 
  })
 
@@ -26,7 +26,7 @@ $('#search-button').on('click', function (e, userLocation) {
     localStorage.setItem('history', JSON.stringify(storedHistory));
   
     historyButton = $('<button>');
-    historyButton.text(userLocation)
+    historyButton.text(userLocation).addClass('history-btn')
 
     historyDiv = $('#history');
     historyDiv.append(historyButton)
