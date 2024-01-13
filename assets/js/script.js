@@ -20,8 +20,12 @@ if (storedHistory.length > 0) {
 $('#search-button').on('click', function (e, userLocation) {
   
   e.preventDefault();
-  historyDiv.prepend(historyTitle);
-    var userLocation = $('#search-input').val().trim()
+  var userLocation = $('#search-input').val().trim()
+  
+  
+  
+  if (!userLocation == '') {
+    historyDiv.prepend(historyTitle);
 
     if (storedHistory) {
       console.log(storedHistory)
@@ -35,6 +39,8 @@ $('#search-button').on('click', function (e, userLocation) {
       }
 
     }
+      
+  
 
     const APIKey = "34868cf202b6a50a7276328f1ce106bf";
   
@@ -89,30 +95,30 @@ $('#search-button').on('click', function (e, userLocation) {
             todayDiv.append(todayCard);
             
             var fiveDayEl = $('#forecast')
-              fiveDayEl.empty();
+            fiveDayEl.empty();
 
-            for (let i = 0; i < newData.list.length; i+=8) {
+            for (let i = 0; i < newData.list.length; i += 8) {
               var fiveDayForecast = newData.list[i];
     
-            let fiveDayDate = fiveDayForecast.dt_txt;
-            fiveDayDate = dayjs(fiveDayDate).format('DD/MM/YYYY')
+              let fiveDayDate = fiveDayForecast.dt_txt;
+              fiveDayDate = dayjs(fiveDayDate).format('DD/MM/YYYY')
 
-            const fiveDayIconCode = fiveDayForecast.weather[0].icon;
+              const fiveDayIconCode = fiveDayForecast.weather[0].icon;
 
-            const fiveDayWeatherIconURL = `https://openweathermap.org/img/wn/${fiveDayIconCode}@2x.png`;
+              const fiveDayWeatherIconURL = `https://openweathermap.org/img/wn/${fiveDayIconCode}@2x.png`;
     
-            const fiveDayTemp = fiveDayForecast.main.temp
+              const fiveDayTemp = fiveDayForecast.main.temp
     
-            const fiveDayWindSpeed = fiveDayForecast.wind.speed
+              const fiveDayWindSpeed = fiveDayForecast.wind.speed
 
-            const fiveDayHumidity = fiveDayForecast.main.humidity
+              const fiveDayHumidity = fiveDayForecast.main.humidity
             
-            var fiveDayCard = $('<article>').addClass('five-day-card p-3')
-            var fiveDayDateEl = $('<h4>').text(fiveDayDate);
-            var fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
-            var fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
-            var fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')
-            var fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
+              var fiveDayCard = $('<article>').addClass('five-day-card p-3')
+              var fiveDayDateEl = $('<h4>').text(fiveDayDate);
+              var fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
+              var fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
+              var fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')
+              var fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
 
               fiveDayCard.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
               
@@ -123,6 +129,8 @@ $('#search-button').on('click', function (e, userLocation) {
           })
 
       })
+    
+  }
 
 })
   
