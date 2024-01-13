@@ -2,6 +2,7 @@ var storedHistory = JSON.parse(localStorage.getItem('history')) || [];
 console.log(storedHistory);
 
 var historyDiv = $('#history');
+var historyList = $('#history-buttons')
 var historyTitle = $('<h3>').text('History');
 
 if (storedHistory.length > 0) { 
@@ -11,8 +12,7 @@ if (storedHistory.length > 0) {
   $.each(storedHistory, function (i, historyLocation) {
     var historyButton = $('<button>');
     historyButton.text(historyLocation).addClass('history-btn')
-    historyDiv.append(historyButton);
-
+    historyList.prepend(historyButton);
  })
 
 }
@@ -22,25 +22,18 @@ $('#search-button').on('click', function (e, userLocation) {
   e.preventDefault();
   var userLocation = $('#search-input').val().trim()
   
-  
-  
   if (!userLocation == '') {
     historyDiv.prepend(historyTitle);
 
     if (storedHistory) {
-      console.log(storedHistory)
 
       if (!storedHistory.includes(userLocation)) {
         storedHistory.push(userLocation)
         localStorage.setItem('history', JSON.stringify(storedHistory));
         historyButton = $('<button>').text(userLocation).addClass('history-btn');
-        historyDiv.append(historyButton);
-        
+        historyList.prepend(historyButton);
       }
-
     }
-      
-  
 
     const APIKey = "34868cf202b6a50a7276328f1ce106bf";
   
@@ -68,18 +61,12 @@ $('#search-button').on('click', function (e, userLocation) {
             console.log(newData);
 
             const cityName = newData.city.name;
-    
             let date = newData.list[0].dt_txt;
             date = dayjs(date).format('DD/MM/YYYY')
-
             const iconCode = newData.list[0].weather[0].icon;
-
             const weatherIconURL = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-    
             const temp = newData.list[0].main.temp
-    
             const windSpeed = newData.list[0].wind.speed
-
             const humidity = newData.list[0].main.humidity
 
             var todayDiv = $('#today');
@@ -104,21 +91,17 @@ $('#search-button').on('click', function (e, userLocation) {
               fiveDayDate = dayjs(fiveDayDate).format('DD/MM/YYYY')
 
               const fiveDayIconCode = fiveDayForecast.weather[0].icon;
-
               const fiveDayWeatherIconURL = `https://openweathermap.org/img/wn/${fiveDayIconCode}@2x.png`;
-    
               const fiveDayTemp = fiveDayForecast.main.temp
-    
               const fiveDayWindSpeed = fiveDayForecast.wind.speed
-
               const fiveDayHumidity = fiveDayForecast.main.humidity
-            
-              var fiveDayCard = $('<article>').addClass('five-day-card p-3')
-              var fiveDayDateEl = $('<h4>').text(fiveDayDate);
-              var fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
-              var fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
-              var fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')
-              var fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
+              
+              const fiveDayCard = $('<article>').addClass('five-day-card p-3')
+              const fiveDayDateEl = $('<h4>').text(fiveDayDate);
+              const fiveDayIconEl = $('<img>').attr('src', fiveDayWeatherIconURL);
+              const fiveDayTempEl = $('<p>').text('Temp: ' + fiveDayTemp + ' °C')
+              const fiveDayWindEl = $('<p>').text('Wind: ' + fiveDayWindSpeed + ' MPH')
+              const fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
 
               fiveDayCard.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
               
