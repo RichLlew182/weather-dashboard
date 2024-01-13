@@ -26,7 +26,7 @@ $('#search-button').on('click', function (e, userLocation) {
     localStorage.setItem('history', JSON.stringify(storedHistory));
   
     historyButton = $('<button>');
-    historyButton.text(storedHistory[0])
+    historyButton.text(userLocation)
 
     historyDiv = $('#history');
     historyDiv.append(historyButton)
