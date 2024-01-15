@@ -91,7 +91,10 @@ function fetchWeather() {
 
               todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
               todayDiv.append(todayCard);
-            
+
+              const forecastHeader = $('<h3>').text('4 Day Forecast').addClass('w-100 px-3 mb-5');
+
+              const forecastCards = $('#forecast-cards')
               const forecastEl = $('#forecast').empty();
 
               for (let i = 8; i < newData.list.length; i += 8) {
@@ -115,7 +118,8 @@ function fetchWeather() {
                 const fiveDayHumidityEl = $('<p>').text('Humidity: ' + fiveDayHumidity + '%');
 
                 fiveDayWrapper.append(fiveDayDateEl, fiveDayIconEl, fiveDayTempEl, fiveDayWindEl, fiveDayHumidityEl)
-                fiveDayCard.append(fiveDayWrapper)
+                fiveDayCard.append(fiveDayWrapper);
+                forecastEl.prepend(forecastHeader)
                 forecastEl.append(fiveDayCard)
             
               }
