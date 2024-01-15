@@ -1,5 +1,4 @@
 const storedHistory = JSON.parse(localStorage.getItem('history')) || [];
-console.log(storedHistory);
 
 const historyDiv = $('#history');
 const historyList = $('#history-buttons')
@@ -26,7 +25,6 @@ $('#search-button').on('click', function (e) {
 
 function fetchWeather() {
 
-  // console.log($(this).attr('data-name'))
   
   var historyButtonInput = $(this).attr('data-name');
 
@@ -67,10 +65,8 @@ function fetchWeather() {
 
           fetch(queryURL)
             .then(function (response) {
-              console.log(response)
               return response.json();
             }).then(function (newData) {
-              console.log(newData);
 
               const cityName = newData.city.name;
               let date = newData.list[0].dt_txt;
@@ -94,7 +90,6 @@ function fetchWeather() {
 
               const forecastHeader = $('<h3>').text('4 Day Forecast').addClass('w-100 px-3 mb-5');
 
-              const forecastCards = $('#forecast-cards')
               const forecastEl = $('#forecast').empty();
 
               for (let i = 8; i < newData.list.length; i += 8) {
