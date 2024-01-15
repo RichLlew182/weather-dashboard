@@ -68,7 +68,7 @@ function fetchWeather() {
               return response.json();
             }).then(function (newData) {
 
-              const cityName = newData.city.name;
+              const cityName = data[0].name;
               let date = newData.list[0].dt_txt;
               date = dayjs(date).format('DD/MM/YYYY')
               const iconCode = newData.list[0].weather[0].icon;
