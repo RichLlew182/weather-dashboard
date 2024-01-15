@@ -49,7 +49,7 @@ function fetchWeather() {
      
      const APIKey = "34868cf202b6a50a7276328f1ce106bf";
   
-     const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&appid=${APIKey}`;
+     const geoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&appid=${APIKey}`;
     
 
       fetch(geoURL)
