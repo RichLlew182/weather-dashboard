@@ -88,7 +88,7 @@ function fetchWeather() {
               todayCard.append(todayHeader, todayIcon, todayTemp, todayWind, todayHumidity);
               todayDiv.append(todayCard);
 
-              const forecastHeader = $('<h3>').text('4 Day Forecast').addClass('w-100 px-3 mb-5');
+              const forecastHeader = $('<h3>').text('4 Day Forecast').addClass('w-100 px-3');
 
               const forecastEl = $('#forecast').empty();
 
